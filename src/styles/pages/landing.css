@@ -1,4 +1,4 @@
-/* 🌌 LANDING PAGE FULLSCREEN */
+* 🌌 Fullscreen Scrollable Layout */
 .landing-page {
   position: fixed;
   inset: 0;
@@ -6,31 +6,29 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  padding: 1rem;
-  background-color: #0a1f44;
-  color: #f0f4f8;
   overflow-y: auto;
+  padding: 1rem;
   box-sizing: border-box;
   z-index: 1;
-  transform: translateZ(0);
-  contain: layout paint;
-  scrollbar-width: none;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
-.landing-page::-webkit-scrollbar {
-  display: none;
-}
-
+/* ✅ Mobile Specific */
 @media screen and (max-width: 768px) {
   .landing-page {
-    padding: 0.75rem 0.5rem;
+    padding-top: 80px; /* beri ruang untuk header tetap */
+    padding-left: 1rem;
+    padding-right: 1rem;
+    gap: 1rem;
   }
 }
+
 
 /* 🔮 BACKGROUND BLUR LAYER */
 .landing-page::before {
   content: '';
-  position: absolute;
+  position: fixed;
   inset: 0;
   background-image: url('/images/hero-bg.jpg');
   background-size: cover;
@@ -39,9 +37,7 @@
   filter: blur(6px);
   opacity: 0.2;
   pointer-events: none;
-  z-index: 0;
-  transform: translateZ(0);
-  will-change: transform, opacity;
+  z-index: -1;
 }
 
 .hero-logo {
@@ -50,8 +46,8 @@
 }
 @media (max-width: 768px) {
   .hero-logo {
-    width: 80px;
-    margin-bottom: 0.1rem;
+    width: 72px;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -63,9 +59,9 @@
 }
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 1.8rem;
-    line-height: 0.5;
-    margin-bottom: 0.1rem;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-bottom: 0.3rem;
   }
 }
 
@@ -78,8 +74,8 @@
 @media (max-width: 768px) {
   .hero-subtitle {
     font-size: 1rem;
-    line-height: 1.2;
-    margin-bottom: 0.1rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
   }
 }
 
@@ -96,6 +92,10 @@
   .card-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
+    padding: 1rem 0;
+    margin: 0 auto;
+    max-width: 480px;
+    justify-items: center;
   }
 }
 
@@ -109,6 +109,17 @@
   box-shadow: 0 0 12px rgba(0, 255, 255, 0.2);
   animation: fadeInUp 0.8s ease-out forwards;
   opacity: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .feature-card {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 320px;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.15);
+    text-align: center;
+  }
 }
 
 .card-grid .feature-card:nth-child(1) { animation-delay: 1s; }
@@ -129,6 +140,7 @@
 @media screen and (max-width: 768px) {
   .feature-card h3 {
     font-size: 1rem;
+    text-align: center;
   }
 }
 
@@ -139,8 +151,9 @@
 }
 @media screen and (max-width: 768px) {
   .feature-card p {
-    font-size: 0.9rem;
-    line-height: 0.5;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    text-align: center;
   }
 }
 
@@ -160,8 +173,11 @@
 }
 @media screen and (max-width: 768px) {
   .cta-button {
-    font-size: 1rem;
-    padding: 0.4rem 1.5rem;
+    font-size: 0.9rem;
+    padding: 0.5rem 1.2rem;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
   }
 }
 
