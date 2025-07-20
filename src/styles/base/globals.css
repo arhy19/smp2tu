@@ -7,9 +7,10 @@
 
 html, body {
   height: 100%;
+  width: 100vw;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   overflow-y: auto;         /* ✅ Atur scroll vertikal */
   scrollbar-width: none;
   scroll-behavior: smooth;

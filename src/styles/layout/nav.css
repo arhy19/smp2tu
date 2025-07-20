@@ -1,43 +1,78 @@
-/* 🌐 Desktop Navigation */
+/* ===== Desktop Navigation ===== */
 .nav-inline {
   display: flex;
-  gap: 1.5rem;
-  align-items: center;
+  gap: 1.8rem;
 }
 
 .nav-inline a {
-  color: #e0e0e0;
-  text-decoration: none;
-  font-weight: bold;
-  text-shadow: 0 0 5px #2196f3;
-  transition: color 0.3s ease;
+  color: #cceeff;
+  font-weight: 600;
+  font-size: 1rem;
+  text-shadow: 0 0 4px #0ec9ff;
+  transition: transform 0.2s ease;
 }
 
 .nav-inline a:hover {
-  color: #ff5252;
+  transform: scale(1.1);
 }
 
-/* 🔐 Logout Button - shared between desktop & mobile */
-.logout-btn {
-  background: none;
-  border: none;
-  color: #ff5252;
-  font-weight: bold;
-  margin-left: 1rem;
-  cursor: pointer;
-  text-shadow: 0 0 6px #ff8a80;
-  transition: color 0.3s ease, transform 0.2s ease;
+/* ===== Mobile Navigation ===== */
+.nav-mobile-container {
+  position: fixed;
+  top: 64px; /* header height mobile */
+  left: 0;
+  right: 0;
+  z-index: 999;
+  /*width: 100%;*/
+  width: 100vw;
+  height: calc(100vh - 64px);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 2rem 1rem;
+  display: none;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%);
+  overflow-y: auto;
 }
 
-.logout-btn:hover {
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 100vw;
+}
+
+.nav-links a {
+  color: #0ec9ff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-shadow: 0 0 8px #0ff;
+  transition: transform 0.2s ease;
+}
+
+.nav-links a:hover {
+  transform: scale(1.1);
+}
+
+/* Show mobile nav when active */
+.nav-mobile-container .nav-links.active {
+  display: flex;
+}
+
+/* Show mobile nav wrapper */
+.nav-mobile-container.active {
+  display: block;
+transform: translateX(0);
+}
+
+/* Mobile Toggle Button */
+.toggle-btn {
+  background: transparent;
   color: #fff;
-  transform: scale(1.05);
-  text-shadow: 0 0 10px #f00;
-}
-
-/* 📱 Hide desktop nav in mobile mode */
-@media (max-width: 768px) {
-  .nav-inline {
-    display: none;
-  }
+  font-size: 1.8rem;
+  border: none;
+  cursor: pointer;
+  z-index: 3000;
 }

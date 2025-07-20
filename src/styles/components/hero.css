@@ -1,32 +1,49 @@
-/* 🌟 Hero Section */
+/* 🌟 HERO SECTION */
 .hero {
   position: relative;
-  padding: 5rem 0;
+  padding: 5rem 2rem;
   text-align: center;
   z-index: 1;
+  overflow: hidden;
 }
 
-/* 🔧 Overlay tanpa blur */
+/* 🔧 OVERLAY TANPA BLUR */
 .hero::after {
   content: '';
   position: absolute;
   inset: 0;
-  //*background: linear-gradient(to bottom, rgba(10, 31, 68, 0.6), rgba(10, 31, 68, 0.8));*//
+  /* background bisa diaktifkan jika dibutuhkan efek overlay */
+  /* background: linear-gradient(to bottom, rgba(10, 31, 68, 0.6), rgba(10, 31, 68, 0.8)); */
   z-index: -1;
 }
 
-/* 📋 Hero Content List */
+.hero-logo {
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+
+/* 🧾 TITLE */
+.hero-title {
+  color: #cceeff;
+  text-shadow: 0 0 10px #2196f3, 0 0 20px #0ff;
+}
+
+/* 🧾 SUBTITLE */
+.hero-subtitle {
+  color: #9ba6b2;
+}
+
+/* 📋 HERO DESCRIPTION LIST */
 .hero-description-list {
   list-style: none;
-  margin: 0 auto;
   padding: 0;
+  margin: 0 auto;
   max-width: 720px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
 }
 
 .hero-description-list li {
@@ -35,33 +52,16 @@
   animation: fadeInUp 0.6s ease-out forwards;
   margin-bottom: 1rem;
   will-change: transform, opacity;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
 }
 
 .hero-description-list li:nth-child(1) { animation-delay: 0.4s; }
 .hero-description-list li:nth-child(2) { animation-delay: 0.6s; }
 .hero-description-list li:nth-child(3) { animation-delay: 0.8s; }
 
-/* 🖼️ Logo */
-.hero-logo {
-  width: 160px;
-  height: auto;
-  margin-bottom: 0.5rem;
-}
-
-/* 🧾 Title & Subtitle */
-.hero-title {
-  font-size: 2.4rem;
-  margin: 0;
-  color: #cceeff;
-  text-shadow: 0 0 10px #2196f3, 0 0 20px #0ff;
-  line-height: 1.2;
-}
-
-.hero-subtitle {
-  font-size: 1.4rem;
-  margin: 0;
-  color: #9ba6b2;
-  line-height: 1.4;
+/* ✨ ANIMATION */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

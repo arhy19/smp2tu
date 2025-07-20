@@ -1,6 +1,5 @@
 import '@/styles/layout/header.css';
 import '@/styles/layout/nav.css';
-import '@/styles/layout/nav-mobile.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 
@@ -12,33 +11,28 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  // Handle screen resize
   useEffect(() => {
     const handleResize = () => {
       const mobileView = window.innerWidth <= 768;
       setIsMobile(mobileView);
-      if (!mobileView) setIsMenuOpen(false); // auto-close on desktop
+      if (!mobileView) setIsMenuOpen(false);
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Check auth status
   useEffect(() => {
     setIsAuth(localStorage.getItem('auth') === 'true');
   }, []);
 
-  // Handle logout
   const handleLogout = () => {
     localStorage.removeItem('auth');
     setIsAuth(false);
     navigate('/');
   };
 
-  // Toggle mobile nav
   const toggleMenu = () => setIsMenuOpen(prev => !prev);
 
-  // Close nav when clicking outside
   useEffect(() => {
     const closeMenu = e => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
@@ -49,56 +43,55 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', closeMenu);
   }, [isMenuOpen]);
 
-  // Prevent scroll on open menu
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : 'auto';
   }, [isMenuOpen]);
 
   return (
-    <header className="v4-header">
-      <Link to="/" className="logo-link">
-        <div className="logo-container">
-          <img src="/images/logo.png" alt="Logo" className="header-logo" />
-          <div className="logo-text">
-            PORTAL TATA USAHA<br />
-            <span className="glow-text">UPTD SMP NEGERI 2 PAREPARE</span>
+    <>
+      <header className="v4-header">
+        <Link to="/" className="logo-link">
+          <div className="logo-container">
+            <img src="/images/logo.png" alt="Logo" className="header-logo" />
+            <div className="logo-text">
+              PORTAL TATA USAHA<br />
+              <span className="glow-text">UPTD SMP NEGERI 2 PAREPARE</span>
+            </div>
           </div>
-        </div>
-      </Link>
+        </Link>
 
-      {/* Mobile Toggle */}
-      {isMobile && (
-        <button
-          className={`toggle-btn ${isMenuOpen ? 'open' : ''}`}
-          onClick={toggleMenu}
-          aria-label="Toggle Menu"
-          aria-controls="mobile-nav"
-          aria-expanded={isMenuOpen}
-        >
-          {isMenuOpen ? '✖' : '☰'}
-        </button>
-      )}
+        {isMobile && (
+          <button
+            className={`toggle-btn ${isMenuOpen ? 'open' : ''}`}
+            onClick={toggleMenu}
+            aria-label="Toggle Menu"
+            aria-controls="mobile-nav"
+            aria-expanded={isMenuOpen}
+          >
+            {isMenuOpen ? '✖' : '☰'}
+          </button>
+        )}
 
-      {/* Desktop Nav */}
-      {!isMobile && (
-        <nav className="nav-inline">
-          <NavLinks isAuth={isAuth} handleLogout={handleLogout} />
-        </nav>
-      )}
-
-      {/* Mobile Nav */}
-      {isMobile && (
-        <div className="nav-mobile-container" ref={menuRef}>
-          <nav id="mobile-nav" className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-            <NavLinks isAuth={isAuth} handleLogout={handleLogout} onClick={() => setIsMenuOpen(false)} />
+        {!isMobile && (
+          <nav className="nav-inline">
+            <NavLinks isAuth={isAuth} handleLogout={handleLogout} />
           </nav>
+        )}
+      </header>
+
+      {/* Mobile Nav Outside Header for Fullscreen */}
+      {isMobile && (
+        <div className={`nav-mobile-container ${isMenuOpen ? 'active' : ''}`} ref={menuRef}>
+        <nav id="mobile-nav" className="nav-links active">
+        <NavLinks isAuth={isAuth} handleLogout={handleLogout} onClick={() => setIsMenuOpen(false)} />
+        </nav>
         </div>
+
       )}
-    </header>
+    </>
   );
 }
 
-// 🎯 Extracted Component for DRY Code
 function NavLinks({ isAuth, handleLogout, onClick }) {
   return (
     <>

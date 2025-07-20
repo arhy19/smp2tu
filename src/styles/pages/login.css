@@ -28,6 +28,20 @@ html, body {
   letter-spacing: 1px;
 }
 
+/* 🖼️ Logo */
+.login-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+.login-logo {
+    width: 100px;
+    margin-bottom: 1rem;
+  }
+}
+
 /* 🧩 Input Fields */
 .login-page input {
   width: clamp(240px, 50%, 320px);

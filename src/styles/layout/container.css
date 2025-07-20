@@ -1,4 +1,6 @@
-/* 📦 Container Utama */
+/* ===== 📦 container.css (Refactored) ===== */
+
+/* Container Utama */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -7,17 +9,15 @@
   box-sizing: border-box;
 }
 
-
-/* 🧱 Layout Wrapper */
+/* Layout Wrapper */
 .layout-wrapper {
-  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  
+  position: relative;
 }
 
-/* 📄 Page Wrapper (konten halaman utama) */
+/* Page Wrapper */
 .page-wrapper {
   flex: 1;
   display: flex;
@@ -27,13 +27,13 @@
   animation: fadeInUp 0.4s ease-out;
 }
 
-/* 🔝 Jika halaman punya header tetap */
+/* Spacer untuk header tetap */
 .u-header-space {
   padding-top: 80px;
   padding-bottom: 36px;
 }
 
-/* ✨ Heading Glow Styles */
+/* Heading & Title Glow */
 .section-heading,
 .title-glow {
   color: #2196f3;
