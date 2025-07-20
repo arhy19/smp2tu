@@ -22,10 +22,12 @@
 @media screen and (max-width: 768px) {
   .nav-mobile-container {
     display: block;
-    position: absolute;
+    position: fixed;
     top: 64px;
     left: 0;
     width: 100%;
+    height: calc(100vh - 64px); /* penuh viewport kecuali header */
+    overflow-y: auto;
     z-index: 1002;
   }
 
