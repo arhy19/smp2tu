@@ -2,6 +2,7 @@
 .nav-inline {
   display: flex;
   gap: 1.5rem;
+  align-items: center;
 }
 
 .nav-inline a {
@@ -16,7 +17,7 @@
   color: #ff5252;
 }
 
-/* 🔐 Logout Button */
+/* 🔐 Logout Button - shared between desktop & mobile */
 .logout-btn {
   background: none;
   border: none;
@@ -34,7 +35,7 @@
   text-shadow: 0 0 10px #f00;
 }
 
-/* 📱 Hide Desktop Nav on Mobile */
+/* 📱 Hide desktop nav in mobile mode */
 @media (max-width: 768px) {
   .nav-inline {
     display: none;
