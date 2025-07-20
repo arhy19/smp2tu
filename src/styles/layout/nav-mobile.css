@@ -1,6 +1,4 @@
-/* 📱 Mobile Navigation — Portal V4.0 */
-
-/* Toggle Button */
+/* 🍔 Toggle Button */
 .toggle-btn {
   display: none;
   background: none;
@@ -16,7 +14,7 @@
   }
 }
 
-/* Mobile Menu Container */
+/* 📱 Mobile Menu Container */
 .nav-mobile-container {
   display: none;
 }
@@ -25,7 +23,7 @@
   .nav-mobile-container {
     display: block;
     position: absolute;
-    top: 64px; /* di bawah header */
+    top: 64px;
     left: 0;
     width: 100%;
     z-index: 1002;
@@ -68,18 +66,7 @@
   }
 
   .logout-btn {
-    background: none;
-    border: none;
-    color: #ff5252;
-    font-weight: bold;
-    font-size: 1.1rem;
-    cursor: pointer;
+    margin-left: 0;
     text-align: left;
-    transition: color 0.3s ease;
-  }
-
-  .logout-btn:hover {
-    color: #fff;
-    text-shadow: 0 0 10px #f00;
   }
 }
