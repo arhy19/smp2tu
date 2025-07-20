@@ -12,44 +12,50 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  // Deteksi ukuran layar
+  // Handle screen resize
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    const handleResize = () => {
+      const mobileView = window.innerWidth <= 768;
+      setIsMobile(mobileView);
+      if (!mobileView) setIsMenuOpen(false); // auto-close on desktop
+    };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Cek status login dari localStorage
+  // Check auth status
   useEffect(() => {
     setIsAuth(localStorage.getItem('auth') === 'true');
   }, []);
 
+  // Handle logout
   const handleLogout = () => {
     localStorage.removeItem('auth');
     setIsAuth(false);
     navigate('/');
   };
 
+  // Toggle mobile nav
   const toggleMenu = () => setIsMenuOpen(prev => !prev);
 
-  const closeMenuOnClickOutside = (e) => {
-    if (menuRef.current && !menuRef.current.contains(e.target)) {
-      setIsMenuOpen(false);
-    }
-  };
-
+  // Close nav when clicking outside
   useEffect(() => {
-    if (isMenuOpen) {
-      document.addEventListener('mousedown', closeMenuOnClickOutside);
-    }
-    return () => {
-      document.removeEventListener('mousedown', closeMenuOnClickOutside);
+    const closeMenu = e => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setIsMenuOpen(false);
+      }
     };
+    if (isMenuOpen) document.addEventListener('mousedown', closeMenu);
+    return () => document.removeEventListener('mousedown', closeMenu);
+  }, [isMenuOpen]);
+
+  // Prevent scroll on open menu
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : 'auto';
   }, [isMenuOpen]);
 
   return (
     <header className="v4-header">
-      {/* 🔷 Logo */}
       <Link to="/" className="logo-link">
         <div className="logo-container">
           <img src="/images/logo.png" alt="Logo" className="header-logo" />
@@ -60,67 +66,57 @@ export default function Header() {
         </div>
       </Link>
 
-      {/* 🍔 Toggle Mobile */}
+      {/* Mobile Toggle */}
       {isMobile && (
         <button
           className={`toggle-btn ${isMenuOpen ? 'open' : ''}`}
           onClick={toggleMenu}
           aria-label="Toggle Menu"
+          aria-controls="mobile-nav"
           aria-expanded={isMenuOpen}
         >
           {isMenuOpen ? '✖' : '☰'}
         </button>
       )}
 
-{/* 💻 Desktop Nav */}
-{!isMobile && (
-  <nav className="nav-inline">
-    <Link to="/">Beranda</Link>
-    <Link to="/publik">Data</Link>
-    <Link to="/layanan">Layanan</Link>
-    <Link to="/contact">Kontak</Link>
-    <Link to="/about">Tentang</Link>
+      {/* Desktop Nav */}
+      {!isMobile && (
+        <nav className="nav-inline">
+          <NavLinks isAuth={isAuth} handleLogout={handleLogout} />
+        </nav>
+      )}
 
-    {isAuth ? (
-      <>
-        <Link to="/admin/dashboard">Dashboard_Admin</Link>
-        <button onClick={handleLogout} className="logout-btn">Logout</button>
-      </>
-    ) : (
-      <Link to="/login">Masuk</Link>
-    )}
-  </nav>
-)}
+      {/* Mobile Nav */}
+      {isMobile && (
+        <div className="nav-mobile-container" ref={menuRef}>
+          <nav id="mobile-nav" className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+            <NavLinks isAuth={isAuth} handleLogout={handleLogout} onClick={() => setIsMenuOpen(false)} />
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+}
 
-{/* 📱 Mobile Nav */}
-{isMobile && (
-  <div className="nav-mobile-container" ref={menuRef}>
-    <nav className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-      <Link to="/" onClick={() => setIsMenuOpen(false)}>Beranda</Link>
-      <Link to="/publik" onClick={() => setIsMenuOpen(false)}>Data</Link>
-      <Link to="/layanan" onClick={() => setIsMenuOpen(false)}>Layanan</Link>
-      <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Kontak</Link>
-      <Link to="/about" onClick={() => setIsMenuOpen(false)}>Tentang</Link>
-
+// 🎯 Extracted Component for DRY Code
+function NavLinks({ isAuth, handleLogout, onClick }) {
+  return (
+    <>
+      <Link to="/" onClick={onClick}>Beranda</Link>
+      <Link to="/publik" onClick={onClick}>Data</Link>
+      <Link to="/layanan" onClick={onClick}>Layanan</Link>
+      <Link to="/contact" onClick={onClick}>Kontak</Link>
+      <Link to="/about" onClick={onClick}>Tentang</Link>
       {isAuth ? (
         <>
-          <Link to="/admin/dashboard" onClick={() => setIsMenuOpen(false)}>Dashboard_Admin</Link>
-          <button
-            onClick={() => {
-              handleLogout();
-              setIsMenuOpen(false);
-            }}
-            className="logout-btn"
-          >
+          <Link to="/admin/dashboard" onClick={onClick}>Dashboard_Admin</Link>
+          <button className="logout-btn" onClick={() => { handleLogout(); onClick?.(); }}>
             Logout
           </button>
         </>
       ) : (
-        <Link to="/login" onClick={() => setIsMenuOpen(false)}>Login</Link>
+        <Link to="/login" onClick={onClick}>Login</Link>
       )}
-    </nav>
-  </div>
-)}
-    </header>
+    </>
   );
 }
