@@ -1,0 +1,25 @@
+{
+  "name": "project-v4",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Project Website V4.0 by Bro Arhy",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@firebasegen/default-connector": "file:dataconnect-generated/js/default-connector",
+    "emailjs-com": "^3.2.0",
+    "firebase": "^12.0.0",
+    "framer-motion": "^10.16.1",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.4",
+    "vite": "^5.2.0"
+  }
+}

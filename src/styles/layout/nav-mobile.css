@@ -1,0 +1,85 @@
+/* 📱 Mobile Navigation — Portal V4.0 */
+
+/* Toggle Button */
+.toggle-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .toggle-btn {
+    display: block;
+  }
+}
+
+/* Mobile Menu Container */
+.nav-mobile-container {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-mobile-container {
+    display: block;
+    position: absolute;
+    top: 64px; /* di bawah header */
+    left: 0;
+    width: 100%;
+    z-index: 1002;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(14, 26, 43, 0.95);
+    backdrop-filter: blur(6px);
+    padding: 1.2rem;
+    gap: 1rem;
+    border-bottom: 1px solid #444;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .nav-links.active {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-shadow: 0 0 5px #0ff;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: #00bcd4;
+    text-shadow: 0 0 10px #00bcd4;
+  }
+
+  .logout-btn {
+    background: none;
+    border: none;
+    color: #ff5252;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.3s ease;
+  }
+
+  .logout-btn:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #f00;
+  }
+}

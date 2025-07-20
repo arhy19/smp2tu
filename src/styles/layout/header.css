@@ -1,0 +1,75 @@
+/* 🔵 V4 Header */
+.v4-header {
+  position: fixed;
+  top: 36px; /* geser di bawah marquee */
+  left: 0;
+  right: 0;
+  z-index: 1040; /* di bawah marquee */
+  width: 100%;
+  height: 80px;
+  padding: 1rem 2rem;
+  background-color: rgba(8, 48, 107, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  isolation: isolate;
+  /*box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);*/
+}
+
+@media (max-width: 768px) {
+  .v4-header {
+    height: 64px;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+/* 🔷 Logo & Text */
+.logo-container,
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: inherit;
+  flex-wrap: nowrap;
+}
+
+.header-logo {
+  width: 56px;
+  height: auto;
+  margin-right: 1rem;
+  filter: drop-shadow(0 0 4px #2196f3);
+}
+
+.logo-text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-shadow: 0 0 6px #0ff;
+}
+
+.glow-text {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #c0ffff;
+  margin-top: 0.1rem;
+  text-shadow: 0 0 4px #26c6da;
+}
+
+@media (max-width: 768px) {
+  .header-logo {
+    width: 48px;
+}
+
+  .logo-text {
+    font-size: 0.85rem;
+}
+
+  .glow-text {
+    font-size: 0.65rem;
+  }
+}

@@ -1,0 +1,51 @@
+/* layout/sidebar.css */
+
+.v4-sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  box-shadow: -2px 0 12px #0ff40f;
+  transition: transform 0.3s ease;
+  transform: translateX(-100%);
+  z-index: 100;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  
+}
+
+.v4-sidebar.open {
+  right: 0;
+}
+
+.sidebar-menu a {
+  color: #0ec9ff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-shadow: 0 0 8px #0ff40f;
+  transition: transform 0.2s ease;
+}
+
+.sidebar-menu a:hover {
+  transform: scale(1.1);
+}
+
+.close-btn {
+  align-self: flex-end;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #0ec9ff;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .v4-sidebar {
+    display: none;
+  }
+}
