@@ -11,7 +11,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden !important;
-  overflow-y: auto;         /* ✅ Atur scroll vertikal */
+  overflow-y: auto;         
   scrollbar-width: none;
   scroll-behavior: smooth;
   font-family: 'Poppins', sans-serif;
@@ -32,12 +32,12 @@ body {
   font-size: 16px;
   line-height: 1.6;
   min-height: 100vh;
-  padding-top: 64px;
+  padding-top: calc(80px + 36px); 
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   body {
-    padding-top: 80px;
+    padding-top: calc(64px + 32px);
   }
 }
 
@@ -46,11 +46,12 @@ main {
   flex: 1;
   margin: 0;
   min-height: 100vh;
-  overflow-y: auto;          /* ✅ Konten panjang akan scroll */
+  overflow-y: auto;
 }
 
+
 .main-content {
-  padding-top: 80px; /* Sesuai tinggi header kamu */
+  padding-top: 0;
 }
 
 /* ========== 🔗 Links & Buttons ========== */

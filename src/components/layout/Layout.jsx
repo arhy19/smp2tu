@@ -7,8 +7,8 @@ import { AnimatePresence } from 'framer-motion';
 import Header from '@/components/layout/Header.jsx';
 import GlowingMarquee from '@/components/layout/GlowingMarquee.jsx';
 import Footer from '@/components/layout/Footer.jsx';
-
 import PageWrapper from '@/components/ui/PageWrapper.jsx';
+
 import '@/styles/layout/container.css';
 
 export default function Layout() {
@@ -18,12 +18,11 @@ export default function Layout() {
 
   return (
     <>
-      {/* Global Nav/Marquee/Header selalu di luar layout wrapper */}
       {!isMinimal && (
-        <>
-          <GlowingMarquee />
+        <div className="fixed-top-section">
           <Header toggleMenu={() => setMenuOpen(true)} />
-          </>
+          <GlowingMarquee />
+        </div>
       )}
 
       <main className={`main-content ${isMinimal ? 'minimal' : ''}`}>

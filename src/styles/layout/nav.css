@@ -1,9 +1,14 @@
-/* ===== Desktop Navigation ===== */
+/* ===== 💻 Desktop Navigation ===== */
 .nav-inline {
   display: flex;
+  align-items: center;             /* ⬅ pastikan vertikal sejajar */
+  justify-content: flex-end;
   gap: 1.8rem;
+  margin-left: auto;               /* ⬅ dorong ke kanan */
+  padding-block: 0.2rem;           /* ⬇ atas-bawah lebih rapat */
 }
 
+/* Link Styling */
 .nav-inline a {
   color: #cceeff;
   font-weight: 600;
@@ -16,19 +21,20 @@
   transform: scale(1.1);
 }
 
-/* ===== Mobile Navigation ===== */
+---
+
+/* ===== 📱 Mobile Navigation ===== */
 .nav-mobile-container {
   position: fixed;
-  top: 64px; /* header height mobile */
+  top: calc(64px + 32px); /* ⬆ sesuai tinggi header + marquee */
   left: 0;
   right: 0;
   z-index: 999;
-  /*width: 100%;*/
   width: 100vw;
-  height: calc(100vh - 64px);
+  height: calc(100vh - 96px); 
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(10px);
-  padding: 2rem 1rem;
+  padding: 1.5rem 1rem;           
   display: none;
   transition: transform 0.3s ease-in-out;
   transform: translateX(100%);
@@ -36,18 +42,24 @@
 }
 
 .nav-links {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
-  padding: 2rem;
+  gap: 1.2rem;                    
+  padding: 1rem;
   max-width: 100vw;
 }
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 0.5rem;
+    align-items: flex-end;
+  }
+}
+
 
 .nav-links a {
   color: #0ec9ff;
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: clamp(0.85rem, 2.5vw, 1.2rem);
   text-shadow: 0 0 8px #0ff;
   transition: transform 0.2s ease;
 }
@@ -56,22 +68,21 @@
   transform: scale(1.1);
 }
 
-/* Show mobile nav when active */
+/* 🔁 Toggle Visibility */
+.nav-mobile-container.active {
+  display: block;
+  transform: translateX(0);
+}
+
 .nav-mobile-container .nav-links.active {
   display: flex;
 }
 
-/* Show mobile nav wrapper */
-.nav-mobile-container.active {
-  display: block;
-transform: translateX(0);
-}
-
-/* Mobile Toggle Button */
+/* 🔘 Toggle Button */
 .toggle-btn {
   background: transparent;
   color: #fff;
-  font-size: 1.8rem;
+  font-size: 0.8rem;
   border: none;
   cursor: pointer;
   z-index: 3000;

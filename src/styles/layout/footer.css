@@ -23,3 +23,9 @@
   text-align: right;
   /*text-shadow: 0 0 4px #2196f3, 0 0 8px #0ff;*/
 }
+
+@media (max-width: 768px) {
+ .v4-footer p {
+  font-size: 0.5rem;
+  }
+}

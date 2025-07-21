@@ -13,16 +13,16 @@ export default function Home() {
     {
       icon: '🌐',
       title: 'Akses Publik',
-      desc: 'Informasi Publik seputar data sekolah dan layanan TU.',
+      desc: 'Informasi seputar data sekolah, layanan Tata Usaha dan Rekap Data',
       link: '/Publik',
       label: 'Lihat Halaman',
     },
     {
       icon: isAuth ? '✅' : '🔒',
-      title: 'Akses Penuh',
-      desc: 'Akses data kepala sekolah, guru, dan fitur surat resmi.',
+      title: 'Akses Internal',
+      desc: 'Akses data GTK, PTK, Murid, dan fitur surat resmi.',
       link: isAuth ? '/Admin' : '/Login',
-      label: isAuth ? 'Masuk' : 'Login',
+      label: isAuth ? 'Dashboard' : 'Login',
     },
     {
       icon: '👥',
@@ -44,7 +44,7 @@ export default function Home() {
               <img src="/images/logo.png" alt="Logo" className="hero-logo" />
             </li>
             <li>
-              <h5 className="hero-title">📘 Portal Tata Usaha</h5>
+              <h5 className="hero-title">📘 Portal TU</h5>
             </li>
             <li>
               <h1 className="hero-subtitle">Sistem Informasi Tata Usaha Sekolah</h1>

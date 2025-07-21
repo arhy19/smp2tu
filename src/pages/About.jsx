@@ -10,26 +10,25 @@ function About() {
       exit={{ opacity: 0, y: -24 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
-      <h1>Tentang Portal TU</h1>
+      <h1>Welcome</h1>
 
       <div className="about-content">
         <p>
-          Selamat datang di <strong>Portal Tata Usaha</strong> UPTD SMP Negeri 2 Parepare — sistem digital
+          Sistem digital
           untuk transparansi data sekolah, efisiensi kerja TU, dan akses informasi publik.
         </p>
 
         <h3>📜 Sejarah Pengembangan</h3>
         <p>
-          Portal ini mulai dikembangkan pertengahan 2025 oleh <strong>Operator Dapodik</strong> bersama <strong>Copilot</strong>,
-          dan dibangun menggunakan <strong>DomReact</strong> — framework modular berbasis <strong>React</strong> dengan animasi Framer Motion dan integrasi data real-time.
+          Website ini mulai dikembangkan pertengahan 2025 oleh <strong>Staf TU</strong> bersama Bro AI<strong>(Copilot)</strong>,
+          dibangun menggunakan <strong>DomReact</strong> — framework modular berbasis <strong>React</strong> dengan animasi Framer Motion dan integrasi data real-time.
         </p>
 
         <h3>🎯 Tujuan</h3>
         <ul>
         <p>
-          <li>Mempermudah pemutakhiran data sekolah</li>
-          <li>Akses publik rekap GTK, PD, rombel, alumni</li>
-          <li>Desain interaktif dan modular responsif</li>
+          <li>Mempermudah akses informasi Data Sekolah bagi Masyarakat dan Pemangku Kepentingan</li>
+          <li>Membantu tugas Administrasi bagi Pendidik dan Tenaga Kependidikan</li>
           <li>Kolaborasi manusia + AI dalam sistem digital</li>
         </p>
         </ul>
@@ -39,8 +38,10 @@ function About() {
         <p>
           <li><strong>Beranda:</strong> Landing + navigasi cepat</li>
           <li><strong>Rekap Data:</strong> Iframe untuk GTK, PD, rombel</li>
+          <li><strong>Jenis Layanan:</strong> Informasi tentang layanan Administrasi</li>
           <li><strong>Kontak:</strong> Info TU, form, dan peta lokasi</li>
           <li><strong>Tentang:</strong> Profil & pengembangan portal</li>
+          <li><strong>Dashboard Admin:</strong> Akses Khusus Pihak Internal Sekolah</li>
         </p>
         </ul>
         
