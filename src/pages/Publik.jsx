@@ -46,6 +46,18 @@ function Projects() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
       <h2 className="projects-title">Data Individu Sekolah</h2>
+  
+  <div class="info-grid">
+  <div class="label">Nama Sekolah</div><div class="value">: UPTD SMP Negeri 2 Parepare</div>
+  <div class="label">NPSN</div><div class="value">: 40307681</div>
+  <div class="label">Status Sekolah</div><div class="value">: Negeri</div>
+  <div class="label">Akreditasi</div><div class="value">: A</div>
+  <div class="label">Alamat</div><div class="value">: Jl.Lahalede no.84, Kel. Ujung Lare, Kec. Soreang</div>
+  <div class="label"></div><div class="value">: Kota Parepare, Prov. Sulawesi Selatan</div>
+  <div class="label">SK Pendirian Sekolah</div><div class="value">: 187/KEP/III/60</div>
+  <div class="label">Tanggal SK Pendirian</div><div class="value">: 25 Mei 1960</div>
+  <div class="label">Status Kepemilikan</div><div class="value">: Pemerintah Pusat</div>
+</div>
 
       <div className="card-grid">
         {cardData.map((card, index) => (

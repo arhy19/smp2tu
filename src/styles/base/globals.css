@@ -28,7 +28,6 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #08306b;
-  color: #000080;
   font-size: 16px;
   line-height: 1.6;
   min-height: 100vh;
@@ -91,8 +90,23 @@ h1, h2, h3, h4, h5 {
 
 p {
   color: #c2d1df;
-  font-size: 1rem;
-  margin-bottom: 1rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  font-family: Arial, sans-serif;
+  color: #c2d1df; 
+  max-width: 700px;
+  margin: auto;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.value {
+  white-space: pre-wrap;
 }
 
 /* ========== 🖼️ Image Styling ========== */
