@@ -1,41 +1,54 @@
-// src/App.jsx
-import { Routes, Route } from 'react-router-dom';
-import Layout from "@/components/layout/Layout.jsx";     // ✅ Alias based
-import Login from './pages/Login.jsx';
-import Admin from './pages/Admin.jsx';
-import ProtectedRoute from './components/ProtectedRoute.jsx';
+import { Routes, Route, Navigate } from "react-router-dom";
 
+import Layout from "@/components/layout/Layout.jsx";
+import ProtectedRoute from "@/components/shared/ProtectedRoute.jsx";
 
-import Home from './pages/Home.jsx';
-import Publik from './pages/Publik.jsx';
-import Contact from './pages/Contact.jsx';
-import About from './pages/About.jsx';
-import NotFound from './pages/NotFound.jsx';
-import Siswa from './pages/Siswa.jsx';
-import GTK from './pages/GTK.jsx';
+// 🧭 Halaman Utama
+import LandingPage from "@/pages/landingpage/LandingPage.jsx";
+import Beranda from "@/pages/beranda/Beranda.jsx";
+import DashboardPublik from "@/pages/dashboardpublik/DashboardPublik.jsx";
+import DashboardAdmin from "@/pages/dashboardadmin/DashboardAdmin.jsx";
 
+// 📄 Halaman Tambahan
+import Kontak from "@/pages/kontak/Kontak.jsx";
+import About from "@/pages/about/About.jsx";
+
+// 📊 Rekap
+import RekapSiswa from "@/pages/subpage/rekap/RekapSiswa.jsx";
+import RekapGTK from "@/pages/subpage/rekap/RekapGTK.jsx";
+
+// 🔐 Autentikasi & Error
+import Login from "@/pages/subpage/login/Login.jsx";
+import NotFound from "@/pages/subpage/notfound/NotFound.jsx";
 
 export default function App() {
   return (
- 
-<Routes>
-  <Route element={<Layout />}>
-    <Route path="/" element={<Home />} />
-    <Route path="/publik" element={<Publik />} />
-    <Route path="/siswa" element={<Siswa />} />
-    <Route path="/GTK" element={<GTK />} />  
-    <Route path="/contact" element={<Contact />} />
-    <Route path="/about" element={<About />} />
-    <Route path="/admin" element={
-      <ProtectedRoute>
-        <Admin />
-      </ProtectedRoute>
-    } />
-  </Route>
+    <Routes>
+      <Route element={<Layout />}>
+        {/* 🧭 Public Routes */}
+        <Route path="/" element={<LandingPage />} />
+        <Route path="beranda" element={<Beranda />} />
+        <Route path="dashboardpublik" element={<DashboardPublik />} />
+        <Route path="kontak" element={<Kontak />} />
+        <Route path="about" element={<About />} />
+        <Route path="rekapsiswa" element={<RekapSiswa />} />
+        <Route path="rekapgtk" element={<RekapGTK />} />
 
-  {/* 🔐 Auth & Fallback */}
-  <Route path="/login" element={<Login />} />
-  <Route path="*" element={<NotFound />} />
-</Routes>
+        {/* 🔐 Protected Admin */}
+        <Route
+          path="dashboardadmin"
+          element={
+            <ProtectedRoute>
+              <DashboardAdmin />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* 🔑 Auth & Error */}
+        <Route path="login" element={<Login />} />
+        <Route path="404" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="404" state={{ is404: true }} replace />} />
+      </Route>
+    </Routes>
   );
 }

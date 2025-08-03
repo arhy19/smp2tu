@@ -1,0 +1,20 @@
+.publik-page {
+  padding: 1rem 0.5rem;
+
+}
+@media screen and (max-width: 768px) {
+  .publik-page {
+    padding: 0;
+  }
+}
+
+.publik-page h2 {
+  font-size: clamp(1rem, 2.5vw, 2.2rem);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .publik-page h2 {
+  margin-top: 0rem;
+  }
+}

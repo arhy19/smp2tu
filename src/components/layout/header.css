@@ -1,0 +1,84 @@
+/* === HEADER STYLES === */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to left, #60a5fa, #3b82f6, #1e3a8a);
+  padding: 0.05rem 0.5rem;
+  height: auto;
+  width: 100%;
+  max-height: 56px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .header {
+  padding: 0rem 0.6rem;
+max-height: 40px;
+  }
+}
+
+
+/* === LOGO AREA === */
+.logo-link {
+  text-decoration: none;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.header-logo {
+  width: clamp(24px, 2.2vw, 36px);
+  height: auto;
+  transition: transform 0.2s ease;
+  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.25));
+}
+
+.header-logo:hover {
+  transform: scale(1.05);
+}
+
+.header-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  color: #cbd5e1;
+  font-size: clamp(1.7rem, 2.5vw, 3rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+  user-select: none;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.header-text:hover {
+  transform: scale(1.05);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    font-size: 20px;  
+  }
+}
+
+.menu-toggle:hover {
+  transform: scale(1.1);
+}

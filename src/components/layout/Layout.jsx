@@ -1,39 +1,64 @@
-// src/components/Layout.jsx
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-import { useState } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import Header from "./Header.jsx";
+import SidebarNav from "./SidebarNav.jsx";
+import Marquee from "../shared/GlowingMarquee.jsx";
+import Footer from "./Footer.jsx";
 
-import Header from '@/components/layout/Header.jsx';
-import GlowingMarquee from '@/components/layout/GlowingMarquee.jsx';
-import Footer from '@/components/layout/Footer.jsx';
-import PageWrapper from '@/components/ui/PageWrapper.jsx';
-
-import '@/styles/layout/container.css';
+import "./Layout.css";
 
 export default function Layout() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
-  const isMinimal = location.pathname === '/';
+  const navigate = useNavigate();
+
+  const path = location.pathname.toLowerCase();
+  const minimalRoutes = ["/", "/beranda", "/login", "/404"];
+  const is404 = location.state?.is404 === true;
+  const hideLayout = minimalRoutes.includes(path) || is404;
+
+  const [isAuth, setIsAuth] = useState(localStorage.getItem("auth") === "true");
+
+  const [isMobileNavOpen, setMobileNavOpen] = useState(false);
+
+  const toggleMobileNav = () => setMobileNavOpen((prev) => !prev);
+  const closeMobileNav = () => setMobileNavOpen(false);
+
+  const handleLogout = () => {
+    localStorage.setItem("auth", "false");
+    setIsAuth(false);
+    navigate("/");
+    closeMobileNav();
+  };
+
+  useEffect(() => {
+    const syncAuth = () => {
+      setIsAuth(localStorage.getItem("auth") === "true");
+    };
+    window.addEventListener("storage", syncAuth);
+    return () => window.removeEventListener("storage", syncAuth);
+  }, []);
 
   return (
-    <>
-      {!isMinimal && (
-        <div className="fixed-top-section">
-          <Header toggleMenu={() => setMenuOpen(true)} />
-          <GlowingMarquee />
-        </div>
+    <div className="layout-wrapper">
+      {!hideLayout && (
+        <>
+          <Header toggleMobileNav={toggleMobileNav} />
+          <SidebarNav
+            isMobileNavOpen={isMobileNavOpen}
+            closeMobileNav={closeMobileNav}
+            isAuth={isAuth}
+            handleLogout={handleLogout}
+          />
+          <Marquee />
+        </>
       )}
 
-      <main className={`main-content ${isMinimal ? 'minimal' : ''}`}>
-        <AnimatePresence mode="wait">
-          <PageWrapper>
-            <Outlet />
-          </PageWrapper>
-        </AnimatePresence>
+      <main className={`layout-main ${hideLayout ? "full-width" : ""}`}>
+        <Outlet />
       </main>
 
-      {!isMinimal && <Footer />}
-    </>
+      {!hideLayout && <Footer />}
+    </div>
   );
 }

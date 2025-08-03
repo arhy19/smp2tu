@@ -1,0 +1,59 @@
+/* 🏠 Home Page */
+.landing-page {
+  padding: 3rem 1.5rem;
+  background: linear-gradient(to right, #bbdefb, #e3f2fd);
+  text-align: center;
+}
+
+.landing-page h1 {
+  font-size: 2.5rem;
+  color: #0d47a1;
+  margin-bottom: 1rem;
+}
+
+.landing-page p {
+  color: #333;
+  font-size: 1rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.landing-cta-button {
+  display: flex; /* hanya ini, jangan campur dengan block */
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 48px;
+  background-color: #1976d2;
+  color: #fff;
+  font-weight: 600;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(33, 150, 243, 0.2);
+  cursor: pointer;
+  margin: 1.5rem auto 0; /* ini untuk center tombol di kontainer */
+}
+@media (max-width: 480px) {
+  .landing-cta-button {
+    width: 160px;
+    height: 44px;
+    font-size: 0.9rem;
+  }
+}
+
+.landing-cta-button:hover,
+.landing-cta-button:active {
+  background-color: #008000;
+  color: #fff;
+}
+
+.landing-cta-button:hover {
+  transform: scale(1.03);
+}
+
+.landing-cta-button:active {
+  transform: scale(0.97);
+}

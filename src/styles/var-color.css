@@ -1,0 +1,69 @@
+:root {
+  /* 🎨 Warna Utama */
+  --primary-color: #1976D2;       /* Biru utama */
+  --primary-light: #63A4FF;       /* Biru terang */
+  --primary-dark: #004BA0;        /* Biru tua */
+  --primary-contrast: #FFFFFF;    /* Teks di atas primary */
+
+  /* 💧 Warna Sekunder */
+  --secondary-color: #0288D1;     /* Biru muda kehijauan */
+  --secondary-light: #5EB8FF;
+  --secondary-dark: #01579B;
+  --secondary-contrast: #FFFFFF;
+
+  /* 🧁 Warna Tertier */
+  --tertiary-color: #7B1FA2;      /* Ungu elegan untuk elemen khusus */
+  --tertiary-light: #BA68C8;
+  --tertiary-dark: #4A0072;
+  --tertiary-contrast: #FFFFFF;
+
+  /* ⚫⚪ Netral */
+  --white: #FFFFFF;
+  --black: #000000;
+
+  /* 🌫️ Skala Abu-Abu */
+  --gray-50: #FAFAFA;     /* Background sangat terang */
+  --gray-100: #F5F5F5;
+  --gray-200: #EEEEEE;    /* Card background */
+  --gray-300: #E0E0E0;    /* Border */
+  --gray-400: #BDBDBD;    /* Divider ringan */
+  --gray-500: #9E9E9E;    /* Placeholder */
+  --gray-600: #757575;    /* Teks sekunder */
+  --gray-700: #616161;    /* Teks utama */
+  --gray-800: #424242;    /* Subjudul atau deskripsi */
+  --gray-900: #212121;    /* Judul utama */
+
+  /* ✅ Status Sukses */
+  --success-color: #4CAF50;       /* Hijau sukses */
+  --success-bg: #E8F5E9;
+
+  /* ❌ Status Error */
+  --error-color: #F44336;         /* Merah error */
+  --error-bg: #FFEBEE;
+
+  /* ⚠️ Status Warning */
+  --warning-color: #FFC107;       /* Kuning peringatan */
+  --warning-bg: #FFF8E1;
+
+  /* ℹ️ Status Info */
+  --info-color: #03A9F4;          /* Biru info */
+  --info-bg: #E1F5FE;
+
+  /* 🖱️ Interaksi */
+  --hover-bg: #F0F4FF;            /* Saat hover */
+  --active-bg: #D1E3FF;           /* Saat aktif */
+  --focus-outline: #1976D2;       /* Fokus outline */
+
+  /* 🌌 Gradien */
+  --gradient-blue: linear-gradient(to right, #1976D2, #63A4FF);
+  --gradient-dark: linear-gradient(to right, #212121, #616161);
+  --gradient-sky: linear-gradient(to right, #0288D1, #00BCD4);
+  --gradient-sunset: linear-gradient(to right, #FF6E40, #FFD740);
+  --gradient-ocean: linear-gradient(to right, #0288D1, #26C6DA);
+  --gradient-forest: linear-gradient(to right, #4CAF50, #8BC34A);
+
+  /* 🌙 Mode Gelap */
+  --dark-bg: #121212;             /* Background utama */
+  --dark-surface: #1E1E1E;        /* Surface/card */
+  --dark-text: #E0E0E0;           /* Teks terang di atas dark */
+}

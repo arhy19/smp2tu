@@ -1,0 +1,27 @@
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+.layout-main {
+  flex: 1;
+  padding: 1rem;
+}
+
+.layout-main.full-width {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  padding: 0.01rem;
+}
+
+/* 📱 Responsive Layout */
+@media (max-width: 768px) {
+  .layout-main:not(.full-width) {
+    padding: 1rem;
+  }
+}
