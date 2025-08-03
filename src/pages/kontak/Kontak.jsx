@@ -62,7 +62,7 @@ function Kontak() {
   </div>
 
 <div className="contact-card form-card">
-  <h3>Hubungi Admin Web</h3>
+  <h3>Kontak Admin Web</h3>
 
   {/* 🔹 Opsi Telegram */}
   <div className="contact-options">

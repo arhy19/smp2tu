@@ -3,7 +3,7 @@ import React from 'react';
 function ContactMethod({ type }) {
   const methods = {
     telegram: {
-      label: 'Chat via Telegram',
+      label: 'Chat (Telegram)',
       link: 'https://t.me/spentwo19',
       className: 'telegram-btn',
     },
