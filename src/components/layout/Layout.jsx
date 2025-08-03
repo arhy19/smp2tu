@@ -6,7 +6,7 @@ import SidebarNav from "./SidebarNav.jsx";
 import Marquee from "../shared/GlowingMarquee.jsx";
 import Footer from "./Footer.jsx";
 
-import "./Layout.css";
+import "./layout.css";
 
 export default function Layout() {
   const location = useLocation();
