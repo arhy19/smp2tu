@@ -29,6 +29,13 @@
   pointer-events: none;
   z-index: -1;
 }
+@media screen and (max-width: 600px) {
+  .beranda-main::before {
+  background: 
+    url('/images/hero-bg.jpg') center,
+    rgba(10, 31, 68, 0.6);
+  }
+}
 
 /* 📘 Section Teks */
 .beranda-section-text {

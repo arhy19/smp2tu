@@ -1,10 +1,11 @@
 .publik-page {
   padding: 1rem 0.5rem;
-
+  margin-top: 4rem;
 }
 @media screen and (max-width: 768px) {
   .publik-page {
     padding: 0;
+  margin-top: 1rem;
   }
 }
 
