@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './regsurat.css';
 
 export default function RegSurat() {
   const [tanggalRaw, setTanggalRaw] = useState('');
@@ -33,7 +34,7 @@ export default function RegSurat() {
 
     try {
       const res = await fetch(
-        `https://script.google.com/macros/s/AKfycbzjYqvrtcgVCF4tR1oJJ65CqyQZCvecOFUQnK5NyrBe3NhMez_T6AV-JwSnjMuQKzvbTQ/exec?${queryParams.toString()}`
+        `https://script.google.com/macros/s/AKfycbzugDjwlzuTlOAcc4xA2YxTVvLypUJTua2_bIfxqQAmkUAE_5XSfLu690mgdASoC4iM0A/exec?${queryParams.toString()}`
       );
 
       const resultText = await res.text();
