@@ -21,6 +21,13 @@ export default function Home() {
       link: isAuth ? 'dashboardadmin' : 'login',
       label: isAuth ? 'Dashboard' : 'Login',
     },
+    {
+      icon: '👥',
+      title: 'Tentang Kami',
+      desc: 'Profil tata usaha, dan visi portal pelayanan sekolah.',
+      link: 'about',
+      label: 'Lihat Halaman',
+    },
   ];
 
   return (

@@ -1,10 +1,31 @@
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
+import emailjs from 'emailjs-com';
 import ContactMethod from './ContactMethod';
 import './kontak.css';
 
 function Kontak() {
- 
+  const formRef = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        'service_portal',
+        'template_i3mpo15',
+        formRef.current,
+        'AQ7FYi5BjaPgIOvQf'
+      )
+      .then(() => {
+        alert('✅ Pesan dikirim! Akan direspon jika diperlukan.');
+        formRef.current.reset();
+      })
+      .catch((error) => {
+        console.error(error);
+        alert('❌ Gagal mengirim pesan.');
+      });
+  };
 
   return (
     <motion.section
@@ -15,19 +36,7 @@ function Kontak() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
       <div className="contact-grid">
-
-<div className="contact-card form-card">
-  <h3>Butuh Bantuan? </h3>
-  <h3>📞 Kontak</h3>
-
-  {/* 🔹 Opsi Telegram */}
-  <div className="contact-options">
-    <ContactMethod type="telegram" />
-  </div>
-
-</div>
-
-
+  {/* 🧭 Kontak TU di sebelah kiri */}
   <div className="contact-card info-card">
     <h2>Kontak TU</h2>
 
@@ -51,6 +60,24 @@ function Kontak() {
       <div className="value-kontak"> Jl. Lahalede No. 84, Kel. Ujung Lare, Kec. Soreang, Kota Parepare, Sulsel</div>
 </div>
   </div>
+
+<div className="contact-card form-card">
+  <h3>Kontak Admin Web</h3>
+
+  {/* 🔹 Opsi Telegram */}
+  <div className="contact-options">
+    <ContactMethod type="telegram" />
+  </div>
+
+  {/* 🔹 Formulir Email */}
+  <h3>Kirim Email</h3>
+  <form ref={formRef} onSubmit={sendEmail}>
+    <input name="user_name" type="text" placeholder="Nama" required />
+    <input name="user_email" type="email" placeholder="Email" required />
+    <textarea name="message" rows="3" placeholder="Pesan" required />
+    <button type="submit">Kirim</button>
+  </form>
+</div>
 
 </div>
 
