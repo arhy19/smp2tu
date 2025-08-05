@@ -14,47 +14,42 @@ export default function RegSurat() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const tanggal = formatTanggalIndonesia(tanggalRaw);
+  const tanggal = formatTanggalIndonesia(tanggalRaw);
 
-    if (!tanggal || !perihal || !ditujukan || !pembuat) {
-      alert("⚠️ Semua field wajib diisi sebelum mengirim.");
-      return;
-    }
+  if (!tanggal || !perihal || !ditujukan || !pembuat) {
+    alert("⚠️ Semua field wajib diisi sebelum mengirim.");
+    return;
+  }
 
-    const formData = new URLSearchParams();
-    formData.append("tanggal", tanggal);
-    formData.append("perihal", perihal);
-    formData.append("ditujukan", ditujukan);
-    formData.append("pembuat", pembuat);
+  const queryParams = new URLSearchParams({
+    tanggal,
+    perihal,
+    ditujukan,
+    pembuat,
+  });
 
-    try {
-      const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbzsMVNA1qbaMF9AJFG8HrZ7UShs_FxgHBY5C9I_1cQ2rXKOFb5hzEotoSLG3FSHV6_z-w/exec",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: formData.toString(),
-        }
-      );
+  try {
+    const res = await fetch(
+      `https://script.google.com/macros/s/AKfycbz4RUnFlxkbGwVQy1VmV9kLb-svbgKldbZJRNmzvb82SIPTPQQUvBj7-1VG3O905RF6PQ/exec?${queryParams.toString()}`
+    );
 
-      const resultText = await res.text();
-      console.log("✅ Respon Apps Script:", resultText);
-      alert(resultText);
+    const resultText = await res.text();
+    console.log("✅ Respon Apps Script:", resultText);
+    alert(resultText);
 
-      // Reset form
-      setTanggalRaw('');
-      setPerihal('');
-      setDitujukan('');
-      setPembuat('');
-    } catch (err) {
-      console.error("❌ Gagal kirim ke Apps Script:", err);
-      alert("Terjadi kesalahan saat mengirim data.");
-    }
-  };
+    // Reset form
+    setTanggalRaw('');
+    setPerihal('');
+    setDitujukan('');
+    setPembuat('');
+  } catch (err) {
+    console.error("❌ Gagal kirim ke Apps Script:", err);
+    alert("Terjadi kesalahan saat mengirim data.");
+  }
+};
+
 
   return (
     <form onSubmit={handleSubmit}>
