@@ -3,19 +3,23 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "@/components/layout/Layout.jsx";
 import ProtectedRoute from "@/components/shared/ProtectedRoute.jsx";
 
-// 🧭 Halaman Utama
+// 🧭 Halaman
 import LandingPage from "@/pages/landingpage/LandingPage.jsx";
 import Beranda from "@/pages/beranda/Beranda.jsx";
 import DashboardPublik from "@/pages/dashboardpublik/DashboardPublik.jsx";
 import DashboardAdmin from "@/pages/dashboardadmin/DashboardAdmin.jsx";
-
-// 📄 Halaman Tambahan
+import Layanan from "@/pages/layanan/Layanan.jsx";
 import Kontak from "@/pages/kontak/Kontak.jsx";
 import About from "@/pages/about/About.jsx";
 
 // 📊 Rekap
-import RekapSiswa from "@/pages/subpage/rekap/RekapSiswa.jsx";
 import RekapGTK from "@/pages/subpage/rekap/RekapGTK.jsx";
+import RekapSiswa from "@/pages/subpage/rekap/RekapSiswa.jsx";
+import RekapSarpras from "@/pages/subpage/rekap/RekapSarpras.jsx";
+import RekapAlumni from "@/pages/subpage/rekap/RekapAlumni.jsx";
+
+// 📊 layanandashboardadmin
+import RegSurat from "@/pages/dashboardadmin/RegSurat.jsx";
 
 // 🔐 Autentikasi & Error
 import Login from "@/pages/subpage/login/Login.jsx";
@@ -31,8 +35,11 @@ export default function App() {
         <Route path="dashboardpublik" element={<DashboardPublik />} />
         <Route path="kontak" element={<Kontak />} />
         <Route path="about" element={<About />} />
-        <Route path="rekapsiswa" element={<RekapSiswa />} />
+        <Route path="layanan" element={<Layanan />} />
         <Route path="rekapgtk" element={<RekapGTK />} />
+        <Route path="rekapsiswa" element={<RekapSiswa />} />
+        <Route path="rekapsarpras" element={<RekapSarpras />} />
+        <Route path="rekapalumni" element={<RekapAlumni />} />
 
         {/* 🔐 Protected Admin */}
         <Route
@@ -40,6 +47,14 @@ export default function App() {
           element={
             <ProtectedRoute>
               <DashboardAdmin />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="regsurat"
+          element={
+            <ProtectedRoute>
+              <RegSurat />
             </ProtectedRoute>
           }
         />

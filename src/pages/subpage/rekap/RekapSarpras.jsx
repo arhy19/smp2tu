@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import RekapNav from './RekapNav';
 import './rekap.css';
 
-function RekapSiswa() {
+function sarpras() {
   return (
     <section className="rekap-page">
       <RekapNav />
@@ -16,22 +16,22 @@ function RekapSiswa() {
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
 
-     <h2 className="rekap-title">Data Peserta Didik</h2>
+     <h2 className="rekap-title">Sarana & Prasarana</h2>
 
       <div className="rekap-frame aspect-siswa">
-        <iframe
+        {/*<iframe
           src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRE67Gu-o-eZnme2NxYHI6Wb8SbUM3zT1gDUFzfD-jpEUOKiXltcarLJD583ABzjb8kSa-Ej0xEFhzJ/pubhtml?gid=225294947&single=true&widget=true&headers=false&range=A1:D8"
           title="Rekap Siswa A1:D8"
           loading="lazy"
-        ></iframe>
+        ></iframe>*/}
       </div>
 
       <div className="rekap-frame aspect-siswa">
-        <iframe
+        {/*<iframe
           src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRE67Gu-o-eZnme2NxYHI6Wb8SbUM3zT1gDUFzfD-jpEUOKiXltcarLJD583ABzjb8kSa-Ej0xEFhzJ/pubhtml?gid=1402319197&single=true&widget=true&headers=false&range=A1:I33"
           title="Rekap Siswa A1:I33"
           loading="lazy"
-        ></iframe>
+        ></iframe>*/}
       </div>
 
       <div className="rekap-info">
@@ -39,13 +39,10 @@ function RekapSiswa() {
         Informasi ini diolah menggunakan sistem rekap berbasis <strong>Google Sheets</strong> dan <strong>Apps Script</strong>.
       </div>
 
-        <Link to="/dashboardpublik" className="rekap-button">
-          lihat data lainnya
-        </Link>
-      </motion.div>
+     </motion.div>
     </section>
   );
 }
 
 
-export default RekapSiswa;
+export default sarpras;

@@ -22,14 +22,14 @@ const cardData = [
     description: 'Data sarana & Prasarana',
     image: '/images/rombel.png',
     alt: 'Sarpras',
-    link: '/sarpras',
+    /*link: '/sarpras',*/
   },
   {
     title: 'ALUMNI',
     description: 'Beranda Alumni.',
     image: '/images/alumni.png',
     alt: 'Alumni',
-    link: '/alumni',
+    /*link: '/alumni',*/
   },
 ];
 

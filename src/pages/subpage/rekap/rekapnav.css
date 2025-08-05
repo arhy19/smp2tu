@@ -1,0 +1,39 @@
+/* Navigasi samping */
+.rekap-aside {
+  background-color: #f3f4f6;
+  padding: 1rem;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  //height: fit-content;
+}
+@media screen and (max-width: 768px) {
+  .rekap-aside {
+    order: -1; /* tampil di atas */
+    border-radius: 8px;
+    box-shadow: none;
+  }
+}
+
+
+/* Navigasi dalam aside */
+.rekap-nav h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.rekap-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rekap-nav li {
+  margin-bottom: 0.5rem;
+}
+
+.rekap-nav a {
+  text-decoration: none;
+  color: #0077cc;
+}

@@ -6,10 +6,10 @@ import "./sidebarnav.css";
 
 const navItems = [
   { label: "🏠 Beranda", path: "/beranda" },
-  { label: "🍳 Data", path: "/dashboardpublik" },
+  { label: "🍳 Info Sekolah", path: "/dashboardpublik" },
   { label: "🙏 Layanan", path: "/layanan" },
   { label: "☎ Kontak", path: "/kontak" },
-  { label: "💻 Tentang", path: "/about" },
+  /*{ label: "💻 Tentang", path: "/about" },*/
 ];
 
 export default function SidebarNav({ isMobileNavOpen, closeMobileNav }) {
