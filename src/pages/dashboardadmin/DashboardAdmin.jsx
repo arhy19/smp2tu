@@ -7,7 +7,7 @@ export default function DashboardAdmin() {
   const [showPopup, setShowPopup] = useState(false);
 
   const quickLinks = [
-    { path: '/DataPegawai', label: '👥 Data Pegawai' },
+    //{ path: '/DataPegawai', label: '👥 Data Pegawai' },
   ];
 
   return (

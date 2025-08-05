@@ -89,7 +89,7 @@ export default function RegSurat() {
             />
           </label>
           <label>
-            Ditujukan Kepada:
+            Tujuan:
             <input
               type="text"
               placeholder="Ditujukan Kepada"
@@ -98,7 +98,7 @@ export default function RegSurat() {
             />
           </label>
           <label>
-            Pembuat Surat:
+            Nama:
             <input
               type="text"
               placeholder="Pembuat Surat"
@@ -106,7 +106,7 @@ export default function RegSurat() {
               onChange={(e) => setPembuat(e.target.value)}
             />
           </label>
-          <button type="submit">📨 Kirim dan Simpan</button>
+          <button type="submit"> Request No. Surat</button>
         </form>
       )}
     </div>
