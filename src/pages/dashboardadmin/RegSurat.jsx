@@ -33,7 +33,7 @@ export default function RegSurat() {
 
     try {
       const res = await fetch(
-        `https://script.google.com/macros/s/AKfycbyEJwUiMo06PrTIpCTvTLSukxvSVUU7UjjncVWzfDEanre7KTlvD44SynlqIsd9jxSz7g/exec?${queryParams.toString()}`
+        `https://script.google.com/macros/s/AKfycbzjYqvrtcgVCF4tR1oJJ65CqyQZCvecOFUQnK5NyrBe3NhMez_T6AV-JwSnjMuQKzvbTQ/exec?${queryParams.toString()}`
       );
 
       const resultText = await res.text();
