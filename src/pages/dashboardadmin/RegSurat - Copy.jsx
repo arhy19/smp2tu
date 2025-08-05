@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import NomorSuratIframe from './NomorSuratIframe';
 import './regsurat.css';
 
 export default function RegSurat() {
@@ -9,6 +8,7 @@ export default function RegSurat() {
   const [pembuat, setPembuat] = useState('');
   const [tampilkanIframe, setTampilkanIframe] = useState(false);
 
+  // Format tanggal ke DD-MM-YYYY
   const formatTanggalIndonesia = (isoDate) => {
     if (!isoDate) return '';
     const [year, month, day] = isoDate.split('-');
@@ -17,6 +17,7 @@ export default function RegSurat() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const tanggal = formatTanggalIndonesia(tanggalRaw);
 
     if (!tanggal || !perihal || !ditujukan || !pembuat) {
@@ -40,6 +41,7 @@ export default function RegSurat() {
       console.log('✅ Respon Apps Script:', resultText);
       alert(resultText);
 
+      // Reset form + tampilkan iframe
       setTanggalRaw('');
       setPerihal('');
       setDitujukan('');
@@ -54,10 +56,19 @@ export default function RegSurat() {
   return (
     <div className="regSurat">
       {tampilkanIframe ? (
+
         <div className="popup-iframe">
           <h3>📌 Nomor Surat Terbit:</h3>
-          <NomorSuratIframe height={120} range="B3:D7" />
+          <iframe
+            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQA8I7zGhIWYTGoKcDEXuJzvnR2DawiXBp58l-Z3tjg52Ady0nGBFoxfcvllZ7Y8RTXuk9GVjEphDZ4/pubhtml?gid=637836701&range=B3:D7"
+            width="100%"
+            height="120"
+            style={{ border: 'none' }}
+            title="Nomor Surat"
+          ></iframe>
+          {/*<button onClick={() => setTampilkanIframe(false)}>❌ Tutup Preview</button>*/}
         </div>
+
       ) : (
         <form onSubmit={handleSubmit}>
           <label>
