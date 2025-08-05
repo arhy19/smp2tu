@@ -13,7 +13,7 @@
 
 @media (max-width: 768px) {
   .horizontal-nav {
-    top: 30px;
+    top: 35px;
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
@@ -67,7 +67,7 @@
 }
 @media (max-width: 768px) {
   .nav-link {
-  padding: 0.1px;
+  padding: 1px;
   }
 }
 
@@ -80,8 +80,8 @@
   color: #fff;
   cursor: default;
   pointer-events: none;
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
+  border-radius: 0px;
+  padding: 0.1rem 1rem;
 }
 
 /* 🚪 LOGOUT STYLE */

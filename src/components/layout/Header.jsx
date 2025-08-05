@@ -5,16 +5,18 @@ import './header.css';
 export default function Header({ toggleMobileNav }) {
   return (
     <header className="header">
-      <Link to="/" className="logo-link" aria-label="Go to homepage">
-        <div className="logo-container">
-          <img
-            src="/images/logo.png"
-            alt="Portal TU Logo"
-            className="header-logo"
-          />
-          <span className="header-text">PORTAL TATA USAHA</span>
-        </div>
-      </Link>
+
+<div className="logo-container">
+    <Link to="/" aria-label="Go to homepage">
+      <img
+        src="/images/logo.png"
+        alt="Portal TU Logo"
+        className="header-logo"
+      />
+    </Link>
+    <span className="header-text">PORTAL TATA USAHA</span>
+  </div>
+
 
       {/* Toggle hanya muncul di mode mobile */}
       <button
