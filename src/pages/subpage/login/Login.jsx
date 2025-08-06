@@ -18,7 +18,13 @@ export default function Login() {
     setCredentials((prev) => ({ ...prev, [field]: e.target.value }));
 
   const isEmptyField = !credentials.username || !credentials.password;
-  const isValidUser = credentials.username === "admin" && credentials.password === "123456"; // bisa ganti source validasi
+const validUsers = {
+  admin: "123456",
+  t: "u",
+  kep: "sek",
+};
+
+const isValidUser = validUsers[credentials.username] === credentials.password;
 
   const handleLogin = () => {
     if (isEmptyField) return alert("Mohon isi username dan password");
