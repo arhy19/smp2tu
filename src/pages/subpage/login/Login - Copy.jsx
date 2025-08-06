@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
-import "./login.css";
+import "./login.css"; 
 
 export default function Login() {
   const { login } = useAuth();
@@ -18,24 +18,20 @@ export default function Login() {
     setCredentials((prev) => ({ ...prev, [field]: e.target.value }));
 
   const isEmptyField = !credentials.username || !credentials.password;
+const validUsers = {
+  admin: "123456",
+  t: "u",
+  kep: "sek",
+};
 
-  const handleLogin = async () => {
+const isValidUser = validUsers[credentials.username] === credentials.password;
+
+  const handleLogin = () => {
     if (isEmptyField) return alert("Mohon isi username dan password");
+    if (!isValidUser) return alert("Login gagal: cek username & password");
 
-    try {
-      const response = await fetch(
-        `https://script.google.com/macros/s/AKfycbwgMiAmgG2PMkjazQzHNkyzymc2tka-6wdJHBp9yADWJ9XR4WJNX5YDsuWNtIKJrV3w/exec?username=${credentials.username}&password=${credentials.password}`
-      );
-      const data = await response.json();
-
-      if (!data.valid) return alert("Login gagal: cek username & password");
-
-      login(credentials.username);
-      navigate("/DashboardAdmin", { replace: true });
-    } catch (err) {
-      console.error("Login error:", err);
-      alert("Terjadi kesalahan saat menghubungi server");
-    }
+    login(credentials.username);
+    navigate("/DashboardAdmin", { replace: true });
   };
 
   return (
