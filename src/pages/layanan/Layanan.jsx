@@ -31,14 +31,8 @@ const cardData = [
 
 function Layanan() {
   return (
-    <motion.section
-      className="publik-page"
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -24 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-    >
-   
+    <section className="layanan-page">
+      <h2>Jenis Layanan</h2>
 
       <div className="card">
         {cardData.map((card, index) => (
@@ -47,7 +41,7 @@ function Layanan() {
             className="feature-card"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 1 + index * 0.2 }}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.5 + index * 0.2 }}
           >
             <Link to={card.link} className="card-link">
               <h3 className="card-title">{card.title}</h3>
@@ -57,7 +51,7 @@ function Layanan() {
           </motion.div>
         ))}
       </div>
-    </motion.section>
+    </section>
   );
 }
 

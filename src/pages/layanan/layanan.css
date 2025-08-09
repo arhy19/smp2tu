@@ -1,21 +1,21 @@
-.publik-page {
+.layanan-page {
   padding: 1rem 0.5rem;
   margin-top: 4rem;
 }
 @media screen and (max-width: 768px) {
-  .publik-page {
+  .layanan-page {
     padding: 0;
-  margin-top: 1rem;
+    margin-top: 1rem;
   }
 }
 
-.publik-page h2 {
+.layanan-page h2 {
   font-size: clamp(1rem, 2.5vw, 2.2rem);
   text-align: center;
   margin-bottom: 1rem;
 }
 @media screen and (max-width: 768px) {
-  .publik-page h2 {
+  .layanan-page h2 {
   margin-top: 0rem;
   }
 }

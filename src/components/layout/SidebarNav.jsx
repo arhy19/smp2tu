@@ -5,10 +5,10 @@ import PropTypes from "prop-types";
 import "./sidebarnav.css";
 
 const navItems = [
-  { label: "🏠 Beranda", path: "/beranda" },
-  { label: "🍳 Info Sekolah", path: "/dashboardpublik" },
-  { label: "🙏 Layanan", path: "/layanan" },
-  { label: "☎ Kontak", path: "/kontak" },
+  /*{ label: "🏠 Beranda", path: "/beranda" },*/
+  { label: "PROFIL", path: "/dashboardpublik" },
+  { label: "LAYANAN", path: "/layanan" },
+  { label: "KONTAK", path: "/kontak" },
   /*{ label: "💻 Tentang", path: "/about" },*/
 ];
 
@@ -54,7 +54,7 @@ export default function SidebarNav({ isMobileNavOpen, closeMobileNav }) {
               }
               onClick={closeMobileNav}
             >
-              📊 Dashboard Admin
+              BERANDA ADMIN
             </NavLink>
           </li>
         )}
@@ -62,7 +62,7 @@ export default function SidebarNav({ isMobileNavOpen, closeMobileNav }) {
         <li>
           {isAuth ? (
             <button className="logout-btn" onClick={logoutAndRedirect}>
-              🔓 Logout
+              LOGOUT
             </button>
           ) : (
             <NavLink
@@ -72,7 +72,7 @@ export default function SidebarNav({ isMobileNavOpen, closeMobileNav }) {
               }
               onClick={closeMobileNav}
             >
-              🔐 Login
+              BERANDA ADMIN
             </NavLink>
           )}
         </li>

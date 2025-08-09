@@ -57,7 +57,7 @@ export default function Login() {
       <button onClick={handleLogin}>Masuk</button>
 
       <div className="login-options">
-        <button onClick={() => navigate("/")}>Kembali</button>
+        <button onClick={() => navigate("/Beranda")}>Kembali</button>
       </div>
     </section>
   );
