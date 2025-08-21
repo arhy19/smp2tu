@@ -44,4 +44,8 @@ const UsulPIPform = () => {
   );
 };
 
+<<<<<<<< HEAD:src/pages/layanan/UsulPIPform.jsx
 export default UsulPIPform;
+========
+export default UsulPIP;
+>>>>>>>> a9f7d0635346dce78da4a95d77716d14d3eeb95e:src/pages/layanan/UsulPIP.jsx
