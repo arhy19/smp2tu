@@ -1,0 +1,60 @@
+.usulpip-container {
+  max-width: 800px;
+  margin: 80px auto 40px; /* Turunkan halaman agar tidak ketabrak marquee */
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.usulpip-title {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: clamp(1.5rem, 2vw, 2rem); /* Responsif */
+}
+
+.usulpip-description {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: clamp(1rem, 1.5vw, 1.2rem); /* Responsif */
+}
+
+.usulpip-iframe-wrapper {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.usulpip-iframe-wrapper iframe {
+  width: 100%;
+  height: clamp(1300px, 95vh, 2200px); /* Tambah panjang bawah agar pas */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: block;
+}
+
+.usulpip-backlink {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.usulpip-backlink a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+}
+
+.usulpip-backlink a:hover {
+  text-decoration: underline;
+}
+
+/* 📱 Mobile tweaks */
+@media (max-width: 600px) {
+  .usulpip-container {
+    padding: 16px;
+    margin-top: 100px; /* Tambahan ruang untuk marquee di mobile */
+  }
+
+  .usulpip-iframe-wrapper iframe {
+    height: 2600px; /* Tambah tinggi sedikit untuk scroll nyaman */
+  }
+}

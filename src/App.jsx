@@ -11,6 +11,7 @@ import DashboardAdmin from "@/pages/dashboardadmin/DashboardAdmin.jsx";
 import Layanan from "@/pages/layanan/Layanan.jsx";
 import Kontak from "@/pages/kontak/Kontak.jsx";
 import About from "@/pages/about/About.jsx";
+import UsulPIP from "@/pages/layanan/UsulPIP.jsx";
 
 // 📊 Rekap
 import RekapGTK from "@/pages/subpage/rekap/RekapGTK.jsx";
@@ -40,6 +41,7 @@ export default function App() {
         <Route path="rekapsiswa" element={<RekapSiswa />} />
         <Route path="rekapsarpras" element={<RekapSarpras />} />
         <Route path="rekapalumni" element={<RekapAlumni />} />
+        <Route path="usulpip" element={<UsulPIP />} />
 
         {/* 🔐 Protected Admin */}
         <Route
