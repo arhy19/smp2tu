@@ -9,9 +9,9 @@ import Beranda from "@/pages/beranda/Beranda.jsx";
 import DashboardPublik from "@/pages/dashboardpublik/DashboardPublik.jsx";
 import DashboardAdmin from "@/pages/dashboardadmin/DashboardAdmin.jsx";
 import Layanan from "@/pages/layanan/Layanan.jsx";
+import UsulPIPform from "@/pages/layanan/UsulPIPform.jsx";
 import Kontak from "@/pages/kontak/Kontak.jsx";
 import About from "@/pages/about/About.jsx";
-import UsulPIPform from "@/pages/layanan/UsulPIPform.jsx";
 
 // 📊 Rekap
 import RekapGTK from "@/pages/subpage/rekap/RekapGTK.jsx";
