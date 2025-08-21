@@ -25,16 +25,7 @@ const UsulPIPform = () => {
           marginHeight="0"
           marginWidth="0"
           title="Formulir Usul PIP"
-        >
-          Jika formulir tidak muncul, silakan buka langsung di{' '}
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfmY-h4JaU6-Z93_85YmrajaCMUNUc_XvAILP19i-VdEGJpAQ/viewform"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            tautan ini
-          </a>.
-        </iframe>
+        />
       </div>
 
       <div className="usulpip-backlink">
@@ -44,8 +35,4 @@ const UsulPIPform = () => {
   );
 };
 
-<<<<<<<< HEAD:src/pages/layanan/UsulPIPform.jsx
 export default UsulPIPform;
-========
-export default UsulPIPform;
->>>>>>>> a9f7d0635346dce78da4a95d77716d14d3eeb95e:src/pages/layanan/UsulPIP.jsx
