@@ -13,7 +13,7 @@ const cardData = [
     title: 'Usulan PIP',
     description: 'Bantuan Dana Pendidikan Untuk Peserta Didik',
     alt: 'Beasiswa',
-    link: '/UsulPIP',
+    link: '/UsulPIPform',
   },
   {
     title: 'Lapor Dapodik',

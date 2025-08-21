@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import './usulpip.css';
 
-const UsulPIP = () => {
+const UsulPIPform = () => {
   return (
     <motion.div
       className="usulpip-container"
@@ -44,4 +44,4 @@ const UsulPIP = () => {
   );
 };
 
-export default UsulPIP;
+export default UsulPIPform;
